@@ -59,9 +59,13 @@ def name(m):
     text=m.text.split(' ')
     print(text)
     if len(text)==3:
+        da=0
         print('1')
-        if text[1] in x['tokens']:
-            print('2')
+        for t in x['tokens']:
+        if text[1]==x['tokens'][t]:
+          da=1
+        print('2')
+        if da==1:
             mob.update_one({'mob'['name']:{'$exists':True}}, {'mob'['name']:text[2]})
             bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
 
