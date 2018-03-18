@@ -16,7 +16,8 @@ bot = telebot.TeleBot(token)
 whitelist=[441399484]
 
 
-client=os.environ['database']
+client1=os.environ['database']
+client=MongoClient(client1)
 db=client.god
 user=db.users
 token=db.tokens
