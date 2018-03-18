@@ -39,6 +39,9 @@ def tokengen():
 def inline(call):
     if call.data=='yes':
         token=tokengen()
+        x=user.find_one({'userid':call.from_user.id})
+        user.update_one({'mobs':{'$exists':True}},{'$inc':{'mobs':1}})
+        user['tokens'].insert_one({'token':token})
         bot.send_message(call.from_user.id, 'Отлично! Вы создали существо. Его токен:\n'+str(token))
         
     
