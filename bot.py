@@ -48,7 +48,7 @@ def inline(call):
         user.update_one({'mobs':{'$exists':True}},{'$inc':{'mobs':1}})
         user['tokens'].insert_one({'token':token})
         mob.update_one({'mob':createmob(token, call.from_user.id)})
-        bot.send_message(call.from_user.id, 'Отлично! Вы создали существо. Его токен:\n'+str(token))
+        medit('Отлично! Вы создали существо. Его токен:\n'+str(token), call.from_user.id, call.message.message_id)
         
     
 
@@ -76,7 +76,9 @@ def life():
         t.start()
         
        
-        
+def medit(message_text,chat_id, message_id,reply_markup=None,parse_mode='Markdown'):
+    return bot.edit_message_text(chat_id=chat_id,message_id=message_id,text=message_text,reply_markup=reply_markup,
+                                 parse_mode=parse_mode)      
 
     
     
