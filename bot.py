@@ -57,7 +57,7 @@ def create(m):
         Keyboard=types.InlineKeyboardMarkup()
         Keyboard.add(types.InlineKeyboardButton(text="Да", callback_data='yes'))
         Keyboard.add(types.InlineKeyboardButton(text="Нет", callback_data='no'))
-        bot.send_message(m.from_user.id, 'Хотите создать существо?')
+        bot.send_message(m.from_user.id, 'Хотите создать существо?', reply_markup=Keyboard)
         
 
         
