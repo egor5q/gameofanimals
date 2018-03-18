@@ -62,8 +62,8 @@ def name(m):
         da=0
         print('1')
         for t in x['tokens']:
-        if text[1]==x['tokens'][t]:
-          da=1
+          if text[1]==x['tokens'][t]:
+            da=1
         print('2')
         if da==1:
             mob.update_one({'mob'['name']:{'$exists':True}}, {'mob'['name']:text[2]})
