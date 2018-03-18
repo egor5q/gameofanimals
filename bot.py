@@ -47,7 +47,7 @@ def inline(call):
         x=user.find_one({'userid':call.from_user.id})
         user.update_one({'mobs':{'$exists':True}},{'$inc':{'mobs':1}})
         user['tokens'].insert_one({'token':token})
-        mob.update_one({'mob':createmob(token, call.from_user.id)})
+        mob.insert_one({'mob':createmob(token, call.from_user.id)})
         medit('Отлично! Вы создали существо. Его токен:\n'+str(token), call.from_user.id, call.message.message_id)
         
     
