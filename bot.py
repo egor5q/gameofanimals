@@ -53,8 +53,14 @@ def inline(call):
     
 
 
-
-
+@bot.message_handler(commands=['name'])
+def name(m):
+    x=user.find_one({'userid':m.from_user.id})
+    text=m.text.split(' ')
+    if len(text)==3:
+        if text[1] in x['tokens']:
+            mob.update_one({'mob'['name']:{'$exists':True}}, {'mob'['name']:text[2]})
+            bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
 
 @bot.message_handler(commands=['create'])
 def create(m):
