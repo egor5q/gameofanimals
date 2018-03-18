@@ -61,8 +61,10 @@ def name(m):
     if len(text)==3:
         da=0
         print('1')
+        print(text[1])              
         for t in x['tokens']:
-          if int(text[1])==x['tokens'][t]:
+          print(x['tokens'][t])
+          if text[1]==x['tokens'][t]:
             da=1
         if da==1:
             print('2')
