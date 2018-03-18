@@ -16,7 +16,7 @@ bot = telebot.TeleBot(token)
 whitelist=[441399484]
 
 
-client=MongoClient('mongodb://egor5q:123@db-shard-00-00-fej0s.mongodb.net:27017,db-shard-00-01-fej0s.mongodb.net:27017,db-shard-00-02-fej0s.mongodb.net:27017/test?ssl=true&replicaSet=DB-shard-0&authSource=admin')
+client=os.environ['database']
 db=client.god
 user=db.users
 token=db.tokens
