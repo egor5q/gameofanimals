@@ -28,7 +28,7 @@ def tokengen():
     x=token.find({})
     for one in x:
         number+=1
-    tokens.insert_one({'token':number+1})
+    token.insert_one({'token':number+1})
     return number+1
     
 
