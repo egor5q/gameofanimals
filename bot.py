@@ -46,7 +46,7 @@ def inline(call):
         token=tokengen()
         x=user.find_one({'userid':call.from_user.id})
         user.update_one({'mobs':{'$exists':True}},{'$inc':{'mobs':1}})
-        x.insert_one({'tokens':{'token':token}})
+        user.x.insert_one({'tokens':{'token':token}})
         mob.insert_one({'mob':createmob(token, call.from_user.id)})
         medit('Отлично! Вы создали существо. Его токен:\n'+str(token), call.from_user.id, call.message.message_id)
         
