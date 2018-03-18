@@ -20,8 +20,13 @@ client=MongoClient('mongodb://egor5q:123@db-shard-00-00-fej0s.mongodb.net:27017,
 db=client.god
 user=db.users
 token=db.tokens
+mob=db.mobs
 
-
+def createmob(token, creatorid):
+    return{'name':None,
+           'token':token,
+           'creator':creatorid
+          }
 
 def tokengen():
     number=0
@@ -42,6 +47,7 @@ def inline(call):
         x=user.find_one({'userid':call.from_user.id})
         user.update_one({'mobs':{'$exists':True}},{'$inc':{'mobs':1}})
         user['tokens'].insert_one({'token':token})
+        mob.update_one({'mob':createmob(token, call.from_user.id)})
         bot.send_message(call.from_user.id, 'Отлично! Вы создали существо. Его токен:\n'+str(token))
         
     
