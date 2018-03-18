@@ -15,6 +15,9 @@ token = os.environ['TELEGRAM_TOKEN']
 bot = telebot.TeleBot(token)
 
 client=MongoClient('mongodb+srv://egor5q:123@db-fej0s.mongodb.net/test')
+
+        
+        
         
         
 if __name__ == '__main__':
