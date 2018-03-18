@@ -39,7 +39,7 @@ def tokengen():
 def inline(call):
     if call.data=='yes':
         token=tokengen()
-        bot.send_message(call.from_user.id, 'Отлично! Вы создали существо. Его токен:\n'+token)
+        bot.send_message(call.from_user.id, 'Отлично! Вы создали существо. Его токен:\n'+str(token))
         
     
 
