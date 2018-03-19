@@ -110,7 +110,7 @@ def life():
         for mobs in x:
             z=act(mobs)
             if z!=None:
-                mob.update_one(mobs, {'$set':{mobs.'mob':z}})
+                mob.update_one(mobs, {'$set':{'mob':z}})
             
         
        
