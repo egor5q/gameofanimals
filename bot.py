@@ -81,6 +81,7 @@ def info(m):
     text=m.text.split(' ')
     print(text)
     if len(text)==2:
+     try:
       x=mob.find_one({'mob.token':int(text[1])})
       if x['mob']['creator']==m.from_user.id:
               q=mob.find_one({'mob.token':int(text[1])})
@@ -100,6 +101,8 @@ def info(m):
               else:
                 name=q['name']
               bot.send_message(m.from_user.id, 'Имя: '+name+'\nЕда: '+str(q['food'])+'/'+str(q['foodmax'])+'\n'+'Возраст: '+str(time[0])+' Дней и '+str(time[1])+' часов')
+     except:
+        pass
             
             
 @bot.message_handler(commands=['create'])
