@@ -139,7 +139,11 @@ def life():
             if z==1:
                 print('1')
                 mob.update_one(mobs, {'$inc':{'mob.food':1}})
+        
             
+def fight(mobs):
+    pass
+
         
        
 def medit(message_text,chat_id, message_id,reply_markup=None,parse_mode='Markdown'):
