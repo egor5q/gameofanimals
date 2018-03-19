@@ -72,15 +72,13 @@ def name(m):
     print(text)
     if len(text)==3:
         da=0
-        print('1')
         print(text[1])              
         for t in x['tokens']:
           print(x['tokens'][t])
           if int(text[1])==int(x['tokens'][t]):
             da=1
         if da==1:
-            print('2')
-            mob.update_one({'mob.token':text[1]}, {'$set':{'mob.name':text[2]}})
+            mob.update_one({'mob.token':int(text[1])}, {'$set':{'mob.name':text[2]}})
             bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
 
             
