@@ -54,7 +54,7 @@ def inline(call):
     if call.data=='yes':
       x=user.find_one({'userid':call.from_user.id})
       if x['mobs']>0 and x['userid'] not in whitelist:
-            bot.send_message(m.from_user.id, 'Ваш лимит: 1 существо. Обращайтесь к создателю')
+            bot.send_message(call.from_user.id, 'Ваш лимит: 1 существо. Обращайтесь к создателю')
       else:
         token=tokengen()
         user.update_one({'userid':call.from_user.id},{'$inc':{'mobs':1}})
