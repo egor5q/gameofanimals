@@ -100,7 +100,7 @@ def feed():
     food.start()
     mob.update({}, {'$inc':{'food':-1}}) 
     x=mob.find_one({})
-    print(x['food'])
+    print(x['mob']['food'])
     
         
 def life():
