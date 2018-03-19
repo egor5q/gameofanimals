@@ -70,7 +70,7 @@ def name(m):
             da=1
         if da==1:
             print('2')
-            mob.update_one({'mob'['name']:{'$exists':True}}, {'mob'['name']:text[2]})
+            mob.update_one({'mob.token':text[1]}, {'mob.name':text[2]})
             bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
 
             
