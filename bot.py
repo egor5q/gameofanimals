@@ -93,8 +93,8 @@ def info(m):
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
               data=datetime.now()
-              data=data-timedelta(q['createtime'])
-              bot.send_message(m.from_user.id, 'Имя: '+q['name']+'\n Еда: '+q['food']+'/'+q['foodmax']+'\n'+data)
+              data=[data.hours-q['createtime'].hours, data.days-q['createtime'].days, data.months-q['createtime'].months]
+              bot.send_message(m.from_user.id, 'Имя: '+q['name']+'\n Еда: '+q['food']+'/'+q['foodmax']+'\n'+'Часы: ' +data[0])
             
             
 @bot.message_handler(commands=['create'])
