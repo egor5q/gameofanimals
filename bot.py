@@ -86,7 +86,7 @@ def info(m):
     yes=0
     try:
       for zz in x['tokens']:
-        if text[1]==x['tokens'][zz]['token']:
+        if text[1]==x['tokens'][zz]:
           yes=1
       if yes==1:
           bot.send_message(m.from_user.id, 'Инфо')
