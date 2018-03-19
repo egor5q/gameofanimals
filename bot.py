@@ -125,7 +125,7 @@ def act(mob):
     mob=mob['mob']   
     if mob['food']<mob['foodmax']:
             a=random.randint(1,100)
-            if a<=10:    
+            if a<=4+mob['luck']:    
                 return 1     
             return 0
     
