@@ -73,7 +73,7 @@ def name(m):
     if len(text)==3:
         da=0   
         for z in x:
-            if x[z]['token']==text[1]:
+            if int(x[z]['token'])==int(text[1]):
                 mob.update_one({'mob.token':int(text[1])}, {'$set':{'mob.name':text[2]}})
                 bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
 
@@ -85,7 +85,7 @@ def info(m):
     if len(text)==2:
         da=0   
         for z in x:
-            if x[z]['token']==text[1]:
+            if int(x[z]['token'])==int(text[1]):
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
               data=datetime.now() 
