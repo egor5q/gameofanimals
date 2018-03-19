@@ -84,14 +84,11 @@ def info(m):
     x=user.find_one({'userid':m.from_user.id})
     text=m.text.split(' ')
     yes=0
-    try:
-      for zz in x['tokens']:
+    for zz in x['tokens']:
         if text[1]==x['tokens'][zz]:
           yes=1
-      if yes==1:
+    if yes==1:
           bot.send_message(m.from_user.id, 'Инфо')
-    except:
-        pass
             
             
 @bot.message_handler(commands=['create'])
