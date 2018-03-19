@@ -98,7 +98,7 @@ def create(m):
 def feed():
     food=threading.Timer(30, feed)
     food.start()
-    mob.update({}, {'$inc':{'food':-1}}) 
+    mob.update({}, {'$inc':{'mob.food':-1}}) 
     x=mob.find_one({'mob.token':5})
     print(x['mob']['food'])
     
