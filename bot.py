@@ -34,7 +34,7 @@ def createmob(token, creatorid):
            'foodmax':25,
            'food':25,
            'luck':0,
-           'createtime':datetime.datetime.now()
+           'createtime':datetime.now()
           }
 
 def tokengen():
