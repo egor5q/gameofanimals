@@ -131,7 +131,8 @@ def act(mob):
     except:
         pass
     
-
+if True:
+    life()
 if True:
     feed()
         
