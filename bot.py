@@ -92,8 +92,12 @@ def info(m):
     if yes==1:
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
-              data=datetime.now()              
-              bot.send_message(m.from_user.id, 'Имя: '+q['name']+'\n Еда: '+q['food']+'/'+q['foodmax']+'\n')
+              data=datetime.now() 
+              if q['name']==None:
+                name='Без имени'
+              else:
+                name=q['name']
+              bot.send_message(m.from_user.id, 'Имя: '+name+'\n Еда: '+q['food']+'/'+q['foodmax']+'\n')
             
             
 @bot.message_handler(commands=['create'])
