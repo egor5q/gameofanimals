@@ -99,7 +99,7 @@ def feed():
     food=threading.Timer(30, feed)
     food.start()
     mob.update({}, {'$inc':{'food':-1}}) 
-    x=mob.find_one({'token':5})
+    x=mob.find_one({'token':1})
     print(x['food'])
     
         
