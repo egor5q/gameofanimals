@@ -85,7 +85,7 @@ def info(m):
     text=m.text.split(' ')
     yes=0
     for zz in x['tokens']:
-        if text[1]==x['tokens'][zz]:
+        if int(text[1])==int(x['tokens'][zz]):
           yes=1
     if yes==1:
           bot.send_message(m.from_user.id, 'Инфо')
