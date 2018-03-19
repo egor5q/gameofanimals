@@ -94,6 +94,8 @@ def info(m):
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
               data=datetime.now() 
+              data=timedelta(q['createtime'])
+              print(data)
               if q['name']==None:
                 name='Без имени'
               else:
