@@ -58,7 +58,7 @@ def inline(call):
       else:
         token=tokengen()
         user.update_one({'userid':call.from_user.id},{'$inc':{'mobs':1}})
-        user.update_one({'userid':call.from_user.id},{'$set':{'tokens.token':token}})
+        user.update_one({'userid':call.from_user.id},{'$push':{'tokens.token':token}})
         mob.insert_one({'mob':createmob(token, call.from_user.id)})
         medit('Отлично! Вы создали существо. Его токен:\n'+str(token), call.from_user.id, call.message.message_id)
         
@@ -67,12 +67,11 @@ def inline(call):
 
 @bot.message_handler(commands=['name'])
 def name(m):
-    x=mob.find({'mob.creator':m.from_user.id})
     text=m.text.split(' ')
     print(text)
     if len(text)==3:
-        for z in x:
-            if int(x[z]['token'])==int(text[1]):
+      x=mob.find_one({'mob.creator':text[1]})
+      if x['mob']['creator']==m.from_user.id:
                 mob.update_one({'mob.token':int(text[1])}, {'$set':{'mob.name':text[2]}})
                 bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
 
