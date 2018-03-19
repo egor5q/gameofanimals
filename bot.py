@@ -79,12 +79,11 @@ def name(m):
 
 @bot.message_handler(commands=['info'])
 def info(m):
-    x=mob.find({'mob.creator':m.from_user.id})
     text=m.text.split(' ')
-    if len(text)==2:
-        da=0   
-        for z in x:
-            if int(x[z]['token'])==int(text[1]):
+    print(text)
+    if len(text)==3:
+      x=mob.find_one({'mob.token':int(text[1])})
+      if x['mob']['creator']==m.from_user.id:
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
               data=datetime.now() 
