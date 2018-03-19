@@ -98,7 +98,7 @@ def create(m):
 def feed():  #Каждые х секунд все сущечтва теряют сытость
     food=threading.Timer(30, feed)
     food.start()
-    mob.update({}, {'$inc':{'mob.food':-1}}) 
+    mob.update_many({}, {'$inc':{'mob.food':-1}}) 
     x=mob.find_one({'mob.token':5})
     print(x['mob']['food'])
     
