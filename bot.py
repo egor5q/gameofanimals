@@ -91,6 +91,7 @@ def info(m):
             if int(text[1])==int(x['tokens'][zz]):
               yes=1
     if yes==1:
+        if len(text)==2:
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
               data=datetime.now() 
