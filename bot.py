@@ -71,7 +71,6 @@ def name(m):
     text=m.text.split(' ')
     print(text)
     if len(text)==3:
-        da=0   
         for z in x:
             if int(x[z]['token'])==int(text[1]):
                 mob.update_one({'mob.token':int(text[1])}, {'$set':{'mob.name':text[2]}})
