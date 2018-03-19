@@ -67,7 +67,7 @@ def inline(call):
 
 @bot.message_handler(commands=['name'])
 def name(m):
-    x=mob.find_many({'creator':m.from_user.id})
+    x=mob.find({'creator':m.from_user.id})
     text=m.text.split(' ')
     print(text)
     if len(text)==3:
@@ -80,7 +80,7 @@ def name(m):
             
 @bot.message_handler(commands=['info'])
 def info(m):
-    x=mob.find_many({'creator':m.from_user.id})
+    x=mob.find({'creator':m.from_user.id})
     text=m.text.split(' ')
     if len(text)==2:
         da=0   
