@@ -90,11 +90,11 @@ def info(m):
             if int(text[1])==int(x['tokens'][zz]):
               yes=1
     if yes==1:
-              m=mob.find_one({'token':int(text[1])})
-              m=m['mob']
+              q=mob.find_one({'token':int(text[1])})
+              q=q['mob']
               data=datetime.now()
-              data=data-timedelta(m['createtime'])
-              bot.send_message(m.from_user.id, 'Имя: '+m['name']+'\n Еда: '+m['food']+'/'+m['foodmax']+'\n'+data)
+              data=data-timedelta(q['createtime'])
+              bot.send_message(m.from_user.id, 'Имя: '+q['name']+'\n Еда: '+q['food']+'/'+q['foodmax']+'\n'+data)
             
             
 @bot.message_handler(commands=['create'])
