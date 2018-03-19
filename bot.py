@@ -58,7 +58,7 @@ def inline(call):
       else:
         token=tokengen()
         user.update_one({'userid':call.from_user.id},{'$inc':{'mobs':1}})
-        user.update_one({'userid':call.from_user.id},{'$set':{'tokens.tokens.token':token}})
+        user.update_one({'userid':call.from_user.id},{'$set':{'tokens.token':token}})
         mob.insert_one({'mob':createmob(token, call.from_user.id)})
         medit('Отлично! Вы создали существо. Его токен:\n'+str(token), call.from_user.id, call.message.message_id)
         
@@ -67,31 +67,25 @@ def inline(call):
 
 @bot.message_handler(commands=['name'])
 def name(m):
-    x=user.find_one({'userid':m.from_user.id})
+    x=mob.find_many({'creator':m.from_user.id})
     text=m.text.split(' ')
     print(text)
     if len(text)==3:
-        da=0
-        print(text[1])              
-        for t in x['tokens']:
-          print(x['tokens'][t])
-          if int(text[1])==int(x['tokens'][t]):
-            da=1
-        if da==1:
-            mob.update_one({'mob.token':int(text[1])}, {'$set':{'mob.name':text[2]}})
-            bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
+        da=0   
+        for z in x:
+            if x[z]['token']==text[1]:
+                mob.update_one({'mob.token':int(text[1])}, {'$set':{'mob.name':text[2]}})
+                bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
 
             
 @bot.message_handler(commands=['info'])
 def info(m):
-    x=user.find_one({'userid':m.from_user.id})
+    x=mob.find_many({'creator':m.from_user.id})
     text=m.text.split(' ')
-    yes=0
     if len(text)==2:
-      for zz in x['tokens']:
-            if int(text[1])==int(x['tokens'][zz]):
-              yes=1
-      if yes==1:
+        da=0   
+        for z in x:
+            if x[z]['token']==text[1]:
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
               data=datetime.now() 
