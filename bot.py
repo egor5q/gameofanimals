@@ -109,8 +109,10 @@ def life():
         x=mob.find({})
         for mobs in x:
             z=act(mobs)
-            if z!=None:
-                mob.update_one(mobs, {'$set':{'mob':z}})
+            if z==1:
+                mob.update_one(mobs, {'$inc':{'mob.food':1}})
+            else:
+                pass
             
         
        
@@ -129,7 +131,8 @@ def act(mob):
                 print('2')
                 mob['food']+=1
                 print(mob['food'])
-                return mob            
+                return 1     
+            return 0
     
        
     
