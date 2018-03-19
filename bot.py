@@ -52,8 +52,11 @@ def tokengen():
 @bot.callback_query_handler(func=lambda call:True)
 def inline(call):
     if call.data=='yes':
+      x=user.find_one({'userid':call.from_user.id})
+      if x['mobs']>0 and x['userid'] not in whitelist:
+            bot.send_message(m.from_user.id, 'Ваш лимит: 1 существо. Обращайтесь к создателю')
+      else:
         token=tokengen()
-        x=user.find_one({'userid':call.from_user.id})
         user.update_one({'userid':call.from_user.id},{'$inc':{'mobs':1}})
         user.update_one({'userid':call.from_user.id},{'$set':{'tokens.token':token}})
         mob.insert_one({'mob':createmob(token, call.from_user.id)})
