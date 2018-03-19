@@ -93,7 +93,9 @@ def info(m):
         if yes==1:
               m=mob.find_one({'mob':{'token':text[1]}})
               m=m['mob']
-              bot.send_message(m.from_user.id, 'Имя: '+m['name']+'\n Еда: '+m['food']+'/'+m['foodmax'])
+              data=datetime.now()
+              data=data-timedelta(m['createtime'])
+              bot.send_message(m.from_user.id, 'Имя: '+m['name']+'\n Еда: '+m['food']+'/'+m['foodmax']+'\n'+data)
     except:
         pass
             
