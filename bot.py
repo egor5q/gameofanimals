@@ -29,7 +29,10 @@ def createmob(token, creatorid):
            'token':token,
            'creator':creatorid,
            'attack':1,
-           'speed':1
+           'speed':1,
+           'foodmax':25,
+           'food':25,
+           'luck':0
           }
 
 def tokengen():
@@ -91,6 +94,13 @@ def create(m):
         
 
         
+
+def feed():
+    food=threading.Timer(30, feed)
+    food.start()
+    mob.update({}, {'$inc':{'food':-1}}) 
+    x=mob.find_one({})
+    print(x['food'])
         
 def life():
         t=threading.Timer(1, life)
@@ -98,6 +108,7 @@ def life():
         x=mob.find({})
         for mobs in x:
             act(mobs)
+            
         
        
 def medit(message_text,chat_id, message_id,reply_markup=None,parse_mode='Markdown'):
@@ -113,7 +124,8 @@ def act(mob):
         pass
     
 
-
+if True:
+    feed()
         
 if __name__ == '__main__':
   bot.polling(none_stop=True)
