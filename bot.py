@@ -75,7 +75,8 @@ def name(m):
                 mob.update_one({'mob.token':int(text[1])}, {'$set':{'mob.name':text[2]}})
                 bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
 
-            
+ 
+
 @bot.message_handler(commands=['info'])
 def info(m):
     x=mob.find({'mob.creator':m.from_user.id})
