@@ -27,7 +27,9 @@ mob=db.mobs
 def createmob(token, creatorid):
     return{'name':None,
            'token':token,
-           'creator':creatorid
+           'creator':creatorid,
+           'attack':1,
+           'speed':1
           }
 
 def tokengen():
@@ -93,6 +95,9 @@ def create(m):
 def life():
         t=threading.Timer(1, life)
         t.start()
+        x=mob.find({})
+        for mobs in x:
+            act(mobs)
         
        
 def medit(message_text,chat_id, message_id,reply_markup=None,parse_mode='Markdown'):
@@ -101,7 +106,12 @@ def medit(message_text,chat_id, message_id,reply_markup=None,parse_mode='Markdow
 
     
     
-
+def act(mob):
+    try:
+        pass
+    except:
+        pass
+    
 
 
         
