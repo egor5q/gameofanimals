@@ -122,7 +122,7 @@ def medit(message_text,chat_id, message_id,reply_markup=None,parse_mode='Markdow
     
 def act(mob):
     mob=mob['mob']
-    try:
+    
         if mob['food']<mob['maxfood']:
             print('1')
             a=random.randint(1,100)
@@ -131,8 +131,8 @@ def act(mob):
                 mob['food']+=1
                 print(mob['food'])
                 return mob            
-    except:
-        pass
+    
+       
     
 if True:
     life()
