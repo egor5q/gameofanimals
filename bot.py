@@ -104,7 +104,7 @@ def feed():  #Каждые х секунд все сущечтва теряют 
     
         
 def life():
-        t=threading.Timer(2, life)
+        t=threading.Timer(1, life)
         t.start()
         x=mob.find({})
         for mobs in x:
@@ -123,9 +123,9 @@ def medit(message_text,chat_id, message_id,reply_markup=None,parse_mode='Markdow
     
 def act(mob):
     mob=mob['mob']   
-    if mob['food']<25:
+    if mob['food']<mob['foodmax']:
             a=random.randint(1,100)
-            if a<=20:    
+            if a<=10:    
                 return 1     
             return 0
     
