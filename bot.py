@@ -14,7 +14,7 @@ from pymongo import MongoClient
 
 token = os.environ['TELEGRAM_TOKEN']
 bot = telebot.TeleBot(token)
-whitelist=[441399484]
+whitelist=[441399484,55888804]
 
 
 
