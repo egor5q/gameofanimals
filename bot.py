@@ -92,9 +92,8 @@ def info(m):
     if yes==1:
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
-              data=datetime.now()
-              data=[data.hours-q['createtime'].hours, data.days-q['createtime'].days, data.months-q['createtime'].months]
-              bot.send_message(m.from_user.id, 'Имя: '+q['name']+'\n Еда: '+q['food']+'/'+q['foodmax']+'\n'+'Часы: ' +data[0])
+              data=datetime.now()              
+              bot.send_message(m.from_user.id, 'Имя: '+q['name']+'\n Еда: '+q['food']+'/'+q['foodmax']+'\n'+'Часы: ' +datetime.now())
             
             
 @bot.message_handler(commands=['create'])
