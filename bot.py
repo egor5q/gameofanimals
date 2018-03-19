@@ -81,7 +81,7 @@ def name(m):
 def info(m):
     text=m.text.split(' ')
     print(text)
-    if len(text)==3:
+    if len(text)==2:
       x=mob.find_one({'mob.token':int(text[1])})
       if x['mob']['creator']==m.from_user.id:
               q=mob.find_one({'mob.token':int(text[1])})
