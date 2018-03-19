@@ -95,7 +95,7 @@ def create(m):
 
         
 
-def feed():
+def feed():  #Каждые х секунд все сущечтва теряют сытость
     food=threading.Timer(30, feed)
     food.start()
     mob.update({}, {'$inc':{'mob.food':-1}}) 
