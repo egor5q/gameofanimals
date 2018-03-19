@@ -124,7 +124,6 @@ def act(mob):
     mob=mob['mob']
     
     if mob['food']<25:
-            print('1')
             a=random.randint(1,100)
             if a<=10:    
                 print('2')
