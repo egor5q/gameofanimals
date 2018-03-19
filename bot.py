@@ -86,18 +86,15 @@ def info(m):
     x=user.find_one({'userid':m.from_user.id})
     text=m.text.split(' ')
     yes=0
-    try:
-        for zz in x['tokens']:
+    for zz in x['tokens']:
             if int(text[1])==int(x['tokens'][zz]):
               yes=1
-        if yes==1:
+    if yes==1:
               m=mob.find_one({'mob':{'token':text[1]}})
               m=m['mob']
               data=datetime.now()
               data=data-timedelta(m['createtime'])
               bot.send_message(m.from_user.id, 'Имя: '+m['name']+'\n Еда: '+m['food']+'/'+m['foodmax']+'\n'+data)
-    except:
-        pass
             
             
 @bot.message_handler(commands=['create'])
