@@ -70,7 +70,7 @@ def name(m):
     text=m.text.split(' ')
     print(text)
     if len(text)==3:
-      x=mob.find_one({'mob.token':text[1]})
+      x=mob.find_one({'mob.token':str(text[1])})
       if x['mob']['creator']==m.from_user.id:
                 mob.update_one({'mob.token':int(text[1])}, {'$set':{'mob.name':text[2]}})
                 bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
