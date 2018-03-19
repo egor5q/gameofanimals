@@ -95,13 +95,20 @@ def info(m):
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
               data=datetime.now() 
-              data=timedelta(q['createtime'])
+              daynow=data.day
+              hournow=data.hour
+              day=q['createtime'].day
+              hour=q['createtime'].hour
+              time=[daynow-day, hournow-hour]
+              if time[1]<0:
+                    time[1]=hour-hournow
+                    time[0]-=1
               print(data)
               if q['name']==None:
                 name='Без имени'
               else:
                 name=q['name']
-              bot.send_message(m.from_user.id, 'Имя: '+name+'\nЕда: '+str(q['food'])+'/'+str(q['foodmax'])+'\n')
+              bot.send_message(m.from_user.id, 'Имя: '+name+'\nЕда: '+str(q['food'])+'/'+str(q['foodmax'])+'\n'+'Возраст: '+str(time[0])+'Дней и '+str(time[1])+' часов')
             
             
 @bot.message_handler(commands=['create'])
