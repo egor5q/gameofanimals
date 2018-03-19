@@ -87,11 +87,11 @@ def info(m):
     x=user.find_one({'userid':m.from_user.id})
     text=m.text.split(' ')
     yes=0
-    for zz in x['tokens']:
+    if len(text)==2:
+      for zz in x['tokens']:
             if int(text[1])==int(x['tokens'][zz]):
               yes=1
-    if yes==1:
-        if len(text)==2:
+      if yes==1:
               q=mob.find_one({'mob.token':int(text[1])})
               q=q['mob']
               data=datetime.now() 
