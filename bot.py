@@ -79,6 +79,13 @@ def name(m):
             bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
 
             
+@bot.message_handler(commands=['info'])
+def info(m):
+    x=user.find_one({'userid':m.from_user.id})
+    text=m.text.split(' ')
+    if text[1] in x['tokens']:
+        bot.send_message(m.from_user.id, 'Инфо')
+            
             
 @bot.message_handler(commands=['create'])
 def create(m):
