@@ -108,7 +108,9 @@ def life():
         t.start()
         x=mob.find({})
         for mobs in x:
-            act(mobs)
+            z=act(mobs)
+            if z!=None:
+                mob.update_one(mobs, {'$set':{'mobs.mob':z}})
             
         
        
@@ -119,8 +121,13 @@ def medit(message_text,chat_id, message_id,reply_markup=None,parse_mode='Markdow
     
     
 def act(mob):
+    mob=mob['mob']
     try:
-        pass
+        if mob['food']<mob['maxfood']:
+            a=random.randint(1,100)
+            if a<=3+mob['luck']:
+                mob['food']+=1
+                return mob            
     except:
         pass
     
