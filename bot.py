@@ -120,8 +120,10 @@ def feed():  #Каждые х секунд все сущечтва теряют 
     food.start()
     mob.update_many({}, {'$inc':{'mob.food':-1}}) 
     x=mob.find_one({'mob.token':1})
-    print(x['mob']['food'])
-    
+    try:
+      print(x['mob']['food'])
+    except:
+        pass
         
 def life():
         t=threading.Timer(1, life)
