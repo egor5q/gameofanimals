@@ -108,7 +108,7 @@ def info(m):
                 name='Без имени'
               else:
                 name=q['name']
-              bot.send_message(m.from_user.id, 'Имя: '+name+'\nЕда: '+str(q['food'])+'/'+str(q['foodmax'])+'\n'+'Возраст: '+str(time[0])+'Дней и '+str(time[1])+' часов')
+              bot.send_message(m.from_user.id, 'Имя: '+name+'\nЕда: '+str(q['food'])+'/'+str(q['foodmax'])+'\n'+'Возраст: '+str(time[0])+' Дней и '+str(time[1])+' часов')
             
             
 @bot.message_handler(commands=['create'])
