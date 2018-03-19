@@ -104,15 +104,14 @@ def feed():  #Каждые х секунд все сущечтва теряют 
     
         
 def life():
-        t=threading.Timer(1, life)
+        t=threading.Timer(2, life)
         t.start()
         x=mob.find({})
         for mobs in x:
             z=act(mobs)
             if z==1:
+                print('1')
                 mob.update_one(mobs, {'$inc':{'mob.food':1}})
-            else:
-                pass
             
         
        
@@ -123,14 +122,10 @@ def medit(message_text,chat_id, message_id,reply_markup=None,parse_mode='Markdow
     
     
 def act(mob):
-    mob=mob['mob']
-    
+    mob=mob['mob']   
     if mob['food']<25:
             a=random.randint(1,100)
-            if a<=10:    
-                print('2')
-                mob['food']+=1
-                print(mob['food'])
+            if a<=20:    
                 return 1     
             return 0
     
