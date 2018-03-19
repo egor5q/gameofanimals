@@ -90,7 +90,7 @@ def info(m):
             if int(text[1])==int(x['tokens'][zz]):
               yes=1
     if yes==1:
-              m=mob.find_one({'mob':{'token':text[1]}})
+              m=mob.find_one({'mob':{'token':int(text[1])}})
               m=m['mob']
               data=datetime.now()
               data=data-timedelta(m['createtime'])
