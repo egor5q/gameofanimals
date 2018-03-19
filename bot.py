@@ -3,6 +3,7 @@ import redis
 import os
 import telebot
 import math
+from datetime import datetime, timedelta
 import random
 import threading
 import info
@@ -32,7 +33,8 @@ def createmob(token, creatorid):
            'speed':1,
            'foodmax':25,
            'food':25,
-           'luck':0
+           'luck':0,
+           'createtime':datetime.datetime.now()
           }
 
 def tokengen():
@@ -89,7 +91,9 @@ def info(m):
             if int(text[1])==int(x['tokens'][zz]):
               yes=1
         if yes==1:
-              bot.send_message(m.from_user.id, 'Инфо')
+              m=mob.find_one({'mob':{'token':text[1]}})
+              m=m['mob']
+              bot.send_message(m.from_user.id, 'Имя: '+m['name']+'\n Еда: '+m['food']+'/'+m['foodmax'])
     except:
         pass
             
