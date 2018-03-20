@@ -125,7 +125,10 @@ def create(m):
         
 @bot.message_handler(commands=['killall'])
 def kill(m):
-    pass
+  if m.from_user.id==441399484:
+    mob.remove({})
+    token.remove({})
+    user.update_many({}, {'$set':{'mobs':0}})
         
 
 def feed():  #Каждые х секунд все сущечтва теряют сытость
