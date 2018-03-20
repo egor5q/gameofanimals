@@ -34,7 +34,8 @@ def createmob(token, creatorid):
            'foodmax':25,
            'food':25,
            'luck':0,
-           'createtime':datetime.now()
+           'createtime':datetime.now(),
+           'level':0
           }
 
 def tokengen():
@@ -122,7 +123,9 @@ def create(m):
         Keyboard.add(types.InlineKeyboardButton(text="Нет", callback_data='no'))
         bot.send_message(m.from_user.id, 'Хотите создать существо?', reply_markup=Keyboard)
         
-
+@bot.message_handler(commands=['killall'])
+def kill(m):
+    pass
         
 
 def feed():  #Каждые х секунд все сущечтва теряют сытость
@@ -144,10 +147,25 @@ def life():
             if z==1:
                 print('1')
                 mob.update_one(mobs, {'$inc':{'mob.food':1}})
+            z=meetup(mobs)
+            if z!=None:
+              if z[1]==1:
+                mob.update({mobs}, {'$inc':{'mob.level':1}})
+                bot.send_message(x[mobs]['creator'], 'Ваше существо с токеном '+x[mobs]['token']+ ' победило в схватке! Теперь его уровень равен '+x[mobs]['level']+ '!')
         
             
-def fight(mobs):
-    pass
+def meetup(mobs):
+    x=random.randint(1,500)
+    if x==1:
+        a=mob.find({})
+        a=random.choice(a)
+        x=random.randint(1,2)
+        if x==1:
+            return [1, a]
+        return[0, a]
+        
+        
+        
 
         
        
