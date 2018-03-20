@@ -154,7 +154,7 @@ def life():
             if z!=None:
               if z[0]==1:
                 bot.send_message(mobs['mob']['creator'], 'Ваше существо с токеном '+str(mobs['mob']['token'])+ ' победило в схватке! Теперь его уровень равен '+str(mobs['mob']['level']+1)+ '!\n'+
-                                'Существо с токеном '+z[1]['mob']['token']+' теряет уровень!')
+                                'Существо с токеном '+z[1]['token']+' теряет уровень!')
                 mob.update_one(z[1], {'inc':{'mob.level':-1}})
         
                 mob.update_one(mobs, {'$inc':{'mob.level':1}})
