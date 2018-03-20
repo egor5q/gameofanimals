@@ -161,7 +161,6 @@ def meetup(mobs):
     x=random.randint(1,500)
     if x==1:
         a=mob.find({})
-        a=random.choice(a)
         x=random.randint(1,2)
         if x==1:
             return [1, a]
