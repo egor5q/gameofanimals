@@ -104,7 +104,7 @@ def info(m):
                 name='Без имени'
               else:
                 name=q['name']
-              bot.send_message(m.from_user.id,'Токен: '+str(q['token'])+'\n'+'Имя: '+name+'\nЕда: '+str(q['food'])+'/'+str(q['foodmax'])+'\n'+'Возраст: '+str(time[0])+' Дней и '+str(time[1])+' часов')
+              bot.send_message(m.from_user.id,'Токен: '+str(q['token'])+'\n'+'Имя: '+name+'\nУровень: '+str(q)['level']+'\nЕда: '+str(q['food'])+'/'+str(q['foodmax'])+'\n'+'Возраст: '+str(time[0])+' Дней и '+str(time[1])+' часов')
      except:
         pass
     else:
