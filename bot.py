@@ -152,7 +152,7 @@ def life():
                 mob.update_one(mobs, {'$inc':{'mob.food':1}})
             z=meetup(mobs)
             if z!=None:
-              if z[1]==1:
+              if z[0]==1:
                 mob.update({mobs}, {'$inc':{'mob.level':1}})
                 bot.send_message(x[mobs]['creator'], 'Ваше существо с токеном '+x[mobs]['token']+ ' победило в схватке! Теперь его уровень равен '+x[mobs]['level']+ '!')
         
