@@ -163,7 +163,12 @@ def life():
 def meetup(mobs):
     x=random.randint(1,500)
     if x==1:
+        z=None
         a=mob.find({})
+        while z==None:
+          for mobs in a:
+            r=random.randint(1,100)
+            if r<=
         x=random.randint(1,2)
         if x==1:
             return [1, a]
