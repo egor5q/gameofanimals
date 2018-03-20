@@ -74,7 +74,7 @@ def name(m):
                 mob.update_one({'mob.token':int(text[1])}, {'$set':{'mob.name':text[2]}})
                 bot.send_message(m.from_user.id, 'Вы успешно изменили имя существа на '+text[2]+'!')
     else:
-       bot.send_message(m.from_user.id, 'Используйте следующий формат:\n*/name token имя*\nГде *token* - токен вашего существа, а *имя* - имя, которое вы хотите ему примвоить', parse_mode=Markdown)
+       bot.send_message(m.from_user.id, 'Используйте следующий формат:\n*/name token имя*\nГде *token* - токен вашего существа, а *имя* - имя, которое вы хотите ему примвоить', parse_mode='markdown')
             
 
  
@@ -107,7 +107,7 @@ def info(m):
      except:
         pass
     else:
-        bot.send_message(m.from_user.id, 'Используйте следующий формат:\n*/info token*\nГде *token* - токен вашего существа', parse_mode=Markdown)
+        bot.send_message(m.from_user.id, 'Используйте следующий формат:\n*/info token*\nГде *token* - токен вашего существа', parse_mode='markdown')
             
             
 @bot.message_handler(commands=['create'])
