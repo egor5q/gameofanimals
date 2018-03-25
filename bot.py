@@ -198,11 +198,13 @@ def act(mob):
             return 0
 def tt():
     bot.send_message(441399484, 'Привет ебло')
-        
+    bot.send_message(55888804, 'Привет ебло') 
         
 if True:
-    t=threading.Timer(300, tt)
+    t=threading.Timer(25200, tt)
     t.start()
+    f=threading.Timer(25200*7, tt)
+    f.start()
     
 if True:
     life()
