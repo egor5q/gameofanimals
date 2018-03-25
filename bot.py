@@ -201,7 +201,7 @@ def tt():
         
         
 if True:
-    t=threading.Timer(30, tt)
+    t=threading.Timer(300, tt)
     t.start()
     
 if True:
