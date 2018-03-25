@@ -169,9 +169,9 @@ def meetup(mobs):
           for mobs in a:
             r=random.randint(1,100)
             if r<=0:
-        x=random.randint(1,2)
-        if x==1:
-            return [1, a]
+             x=random.randint(1,2)
+             if x==1:
+              return [1, a]
         return[0, a]
         
         
