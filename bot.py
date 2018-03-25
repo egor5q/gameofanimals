@@ -129,7 +129,11 @@ def kill(m):
     mob.remove({})
     token.remove({})
     user.update_many({}, {'$set':{'mobs':0}})
-        
+    
+    
+@bot.message_handler(commands=['xer'])    
+def xerr(m):
+    F
 
 def feed():  #Каждые х секунд все сущечтва теряют сытость
     food=threading.Timer(30, feed)
@@ -197,7 +201,7 @@ def tt():
         
         
 if True:
-    t=threading.Timer(3800, tt)
+    t=threading.Timer(30, tt)
     t.start()
     
 if True:
