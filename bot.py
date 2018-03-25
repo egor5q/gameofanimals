@@ -168,7 +168,7 @@ def meetup(mobs):
         while z==None:
           for mobs in a:
             r=random.randint(1,100)
-            if r<=
+            if r<=0:
         x=random.randint(1,2)
         if x==1:
             return [1, a]
@@ -192,8 +192,13 @@ def act(mob):
             if a<=4+mob['luck']:    
                 return 1     
             return 0
-    
-       
+def tt():
+    bot.send_message(441399484, 'Привет ебло')
+        
+        
+if True:
+    t=threading.Timer(3800, tt)
+    t.start()
     
 if True:
     life()
