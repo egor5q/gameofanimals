@@ -16,7 +16,9 @@ token = os.environ['TELEGRAM_TOKEN']
 bot = telebot.TeleBot(token)
 whitelist=[441399484,55888804]
 
-
+werewolf=['Село', 'Камень', 'Ковбой', 'Стрелок', 'Колдун', 'Самоубийца', 
+          'Провидец', 'Очевидец', 'Алкоголик', 'Проклятый', 'Принц', 'ЧЛП', 'Ангел',
+          'Детектив', 'Дикий ребенок', 'Купидон', 'Двойник', 'Мэр']
 
 client1=os.environ['database']
 client=MongoClient(client1)
@@ -131,9 +133,10 @@ def kill(m):
     user.update_many({}, {'$set':{'mobs':0}})
     
     
-@bot.message_handler(commands=['xer'])    
+@bot.message_handler(commands=['role'])    
 def xerr(m):
-    F
+    a=random.choice(werewolf)
+    bot.send_message(m.from_user.id, a)
 
 def feed():  #Каждые х секунд все сущечтва теряют сытость
     food=threading.Timer(30, feed)
