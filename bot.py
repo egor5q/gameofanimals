@@ -64,8 +64,15 @@ def inline(call):
         mob.insert_one({'mob':createmob(token, call.from_user.id)})
         medit('Отлично! Вы создали существо. Его токен:\n'+str(token), call.from_user.id, call.message.message_id)
         
-    
-
+@bot.message_handler(commands=['update'])    
+def up(m):
+    try:
+      mob.update_many({}, {'$set':{'sredn':0, 'kolvo':0}})
+    except:
+        pass
+        
+                    
+                                                                                         
 
 @bot.message_handler(commands=['name'])
 def name(m):
