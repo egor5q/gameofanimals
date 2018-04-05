@@ -125,7 +125,7 @@ def create(m):
         if user.find_one({'userid':m.from_user.id}) is None:
             user.insert_one({'userid':m.from_user.id,
                            'mobs':0,
-                           'tokens':{}
+                           'tokens':[]
                           })
         x=user.find_one({'userid':call.from_user.id})
            if x['mobs']>0 and x['userid'] not in whitelist:
