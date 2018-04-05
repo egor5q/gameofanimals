@@ -127,14 +127,14 @@ def create(m):
                            'mobs':0,
                            'tokens':[]
                           })
-        x=user.find_one({'userid':call.from_user.id})
+        x=user.find_one({'userid':m.from_user.id})
         if x['mobs']>0 and x['userid'] not in whitelist:
-               bot.send_message(call.from_user.id, 'Ваш лимит: 1 существо. Обращайтесь к создателю')
+               bot.send_message(m.from_user.id, 'Ваш лимит: 1 существо. Обращайтесь к создателю')
         else:
               token=tokengen()
-              user.update_one({'userid':call.from_user.id},{'$inc':{'mobs':1}})
-              mob.insert_one({'mob':createmob(token, call.from_user.id)})
-              bot.send_message(m.from_user.id, 'Вы попали в игру "название_игры"! для начала вам даётся ваше первое существо. Вот его токен: '+str(token), reply_markup=Keyboard)
+              user.update_one({'userid':m.from_user.id},{'$inc':{'mobs':1}})
+              mob.insert_one({'mob':createmob(token, m.from_user.id)})
+              bot.send_message(m.from_user.id, 'Вы попали в игру "название_игры"! для начала вам даётся ваше первое существо. Вот его токен: '+str(token))
               
     
                
